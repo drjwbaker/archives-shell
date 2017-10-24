@@ -72,12 +72,18 @@ total 9672
 -rw-rw-r--  1 jb677  1322    16K 17 Oct 15:45 callnumbers.txt
 -rw-rw-r--  1 jb677  1322    18K 17 Oct 15:45 diary.html
 -rw-rw-r--  1 jb677  1322    16K 17 Oct 15:45 pdflist.txt
-drwxr-xr-x 2 riley staff   68 Feb  2 00:58 backup
--rw-r--r-- 1 riley staff 598K Jan 31 18:47 gulliver.txt
+drwxr-xr-x  2 jb677  1322    68K Feb  2 00:58 backup
+-rw-r--r--  1 jb677  1322   598K Jan 31 18:47 gulliver.txt
 ~~~
 {: .output}
 
-In this episode we'll focus on the three tsv files. These contain data from the UK National Archives 'Explore' catalogue: `TNA-download-FO-881-file-level-only-csv.tsv` contains metadata for records in the [Foreign Office: Confidential Print (Numerical Series)](http://discovery.nationalarchives.gov.uk/results/r?_q=%22FO+881%22&_hb=tna&_d=FO&Refine+departments=Refine); `TNA-download-HO-396-tagged-in-Excel-xlsx.tsv` contains metadata for records in the [Home Office: Aliens Department: Internees Index](http://discovery.nationalarchives.gov.uk/results/r?_q=%22HO+396%22&_hb=tna&_d=HO&Refine+departments=Refine); and `TNA-download-WO-97-multilevel-xlsx.tsv` contains metadata for records in the [Royal Hospital Chelsea: Soldier Service Documents](http://discovery.nationalarchives.gov.uk/results/r?_q=%22WO+97%22&_hb=tna&_d=WO&Refine+departments=Refine). All content is available under the [Open Government Licence v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
+In this episode we'll focus on the three tsv files. These contain data from the UK National Archives 'Explore' catalogue: 
+
+- `TNA-download-FO-881-file-level-only-csv.tsv` contains metadata for records in the [Foreign Office: Confidential Print (Numerical Series)](http://discovery.nationalarchives.gov.uk/results/r?_q=%22FO+881%22&_hb=tna&_d=FO&Refine+departments=Refine)
+- `TNA-download-HO-396-tagged-in-Excel-xlsx.tsv` contains metadata for records in the [Home Office: Aliens Department: Internees Index](http://discovery.nationalarchives.gov.uk/results/r?_q=%22HO+396%22&_hb=tna&_d=HO&Refine+departments=Refine)
+- `TNA-download-WO-97-multilevel-xlsx.tsv` contains metadata for records in the [Royal Hospital Chelsea: Soldier Service Documents](http://discovery.nationalarchives.gov.uk/results/r?_q=%22WO+97%22&_hb=tna&_d=WO&Refine+departments=Refine).
+
+All content is available under the [Open Government Licence v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 
 > ## CSV and TSV Files
 > CSV (Comma-separated values) is a common plain text format for storing tabular

@@ -490,7 +490,7 @@ Title: Opticks
 All good so far, but if we had *lots* of books, it would be tedious to enter
 all the filenames. Luckily the shell supports wildcards! The `?` (matches exactly
 one character) and `*` (matches zero or more characters) are probably familiar
-from library search systems. We can use the `*` wildcard to write the above `head`
+from archival search systems. We can use the `*` wildcard to write the above `head`
 command in a more compact way:
 
 ~~~
