@@ -360,12 +360,15 @@ $ ls -lh
 {: .bash}
 ~~~
 total 139M
--rw-r--r-- 1 riley staff 3.6M Jan 31 18:47 2014-01-31_JA-africa.tsv
--rw-r--r-- 1 riley staff 7.4M Jan 31 18:47 2014-01-31_JA-america.tsv
--rw-rw-r-- 1 riley staff 126M Jun 10  2015 2014-01_JA.tsv
--rw-r--r-- 1 riley staff 1.4M Jan 31 18:47 2014-02-02_JA-britain.tsv
--rw-r--r-- 1 riley staff 583K Feb  1 22:53 33504-0.txt
--rw-r--r-- 1 riley staff 598K Jan 31 18:47 829-0.txt
+-rw-rw-r--  1 jb677  1322   383K 17 Oct 15:45 000003160_01_text.json
+-rw-rw-r--  1 jb677  1322   582K 17 Oct 15:45 33504-0.txt
+-rw-rw-r--  1 jb677  1322   598K 17 Oct 15:45 829-0.txt
+-rw-r--r--@ 1 jb677  1322   920K 20 Oct 16:55 TNA-download-FO-881-file-level-only-csv.tsv
+-rw-r--r--@ 1 jb677  1322   1.2M 20 Oct 16:56 TNA-download-HO-396-tagged-in-Excel-xlsx.tsv
+-rw-r--r--@ 1 jb677  1322   1.0M 20 Oct 16:57 TNA-download-WO-97-multilevel-xlsx.tsv
+-rw-rw-r--  1 jb677  1322    16K 17 Oct 15:45 callnumbers.txt
+-rw-rw-r--  1 jb677  1322    18K 17 Oct 15:45 diary.html
+-rw-rw-r--  1 jb677  1322    16K 17 Oct 15:45 pdflist.txt
 ~~~
 {: .output}
 
@@ -528,9 +531,10 @@ $ ls
 ~~~
 {: .bash}
 ~~~
-2014-01-31_JA-africa.tsv   2014-02-02_JA-britain.tsv  gulliver.txt
-2014-01-31_JA-america.tsv  33504-0.txt
-2014-01_JA.tsv
+000003160_01_text.json   33504-0.txt   gulliver.txt
+TNA-download-FO-881-file-level-only-csv.tsv   TNA-download-HO-396-tagged-in-Excel-xlsx.tsv
+TNA-download-WO-97-multilevel-xlsx.tsv   callnumbers.txt
+diary.html   pdflist.txt
 ~~~
 {: .output}
 

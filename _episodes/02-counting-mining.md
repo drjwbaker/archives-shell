@@ -63,21 +63,21 @@ $ ls -lh
 ~~~
 {: .bash}
 ~~~
-total 139M
--rw-r--r-- 1 riley staff 3.6M Jan 31 18:47 2014-01-31_JA-africa.tsv
--rw-r--r-- 1 riley staff 7.4M Jan 31 18:47 2014-01-31_JA-america.tsv
--rw-rw-r-- 1 riley staff 126M Jun 10  2015 2014-01_JA.tsv
--rw-r--r-- 1 riley staff 1.4M Jan 31 18:47 2014-02-02_JA-britain.tsv
--rw-r--r-- 1 riley staff 583K Feb  1 22:53 33504-0.txt
+total 9672
+-rw-rw-r--  1 jb677  1322   582K 17 Oct 15:45 33504-0.txt
+-rw-rw-r--  1 jb677  1322   598K 17 Oct 15:45 829-0.txt
+-rw-r--r--@ 1 jb677  1322   920K 20 Oct 16:55 TNA-download-FO-881-file-level-only-csv.tsv
+-rw-r--r--@ 1 jb677  1322   1.2M 20 Oct 16:56 TNA-download-HO-396-tagged-in-Excel-xlsx.tsv
+-rw-r--r--@ 1 jb677  1322   1.0M 20 Oct 16:57 TNA-download-WO-97-multilevel-xlsx.tsv
+-rw-rw-r--  1 jb677  1322    16K 17 Oct 15:45 callnumbers.txt
+-rw-rw-r--  1 jb677  1322    18K 17 Oct 15:45 diary.html
+-rw-rw-r--  1 jb677  1322    16K 17 Oct 15:45 pdflist.txt
 drwxr-xr-x 2 riley staff   68 Feb  2 00:58 backup
 -rw-r--r-- 1 riley staff 598K Jan 31 18:47 gulliver.txt
 ~~~
 {: .output}
 
-In this episode we'll focus on the dataset `2014-01_JA.tsv`, that contains
-journal article metadata, and the three `.tsv` files derived from the original
-dataset. Each of these three .tsv files includes all data where a keyword such
-as `africa` or `america` appears in the 'Title' field of `2014-01_JA.tsv`.
+In this episode we'll focus on the three tsv files. These contain data from the UK National Archives 'Explore' catalogue: `TNA-download-FO-881-file-level-only-csv.tsv` contains metadata for records in the [Foreign Office: Confidential Print (Numerical Series)](http://discovery.nationalarchives.gov.uk/results/r?_q=%22FO+881%22&_hb=tna&_d=FO&Refine+departments=Refine); `TNA-download-HO-396-tagged-in-Excel-xlsx.tsv` contains metadata for records in the [Home Office: Aliens Department: Internees Index](http://discovery.nationalarchives.gov.uk/results/r?_q=%22HO+396%22&_hb=tna&_d=HO&Refine+departments=Refine); and `TNA-download-WO-97-multilevel-xlsx.tsv` contains metadata for records in the [Royal Hospital Chelsea: Soldier Service Documents](http://discovery.nationalarchives.gov.uk/results/r?_q=%22WO+97%22&_hb=tna&_d=WO&Refine+departments=Refine). All content is available under the [Open Government Licence v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 
 > ## CSV and TSV Files
 > CSV (Comma-separated values) is a common plain text format for storing tabular
@@ -102,11 +102,10 @@ $ wc *.tsv
 ~~~~
 {: .bash}
 ~~~
-    13712    511261   3773660 2014-01-31_JA-africa.tsv
-    27392   1049601   7731914 2014-01-31_JA-america.tsv
-   507732  17606310 131122144 2014-01_JA.tsv
-     5375    196999   1453418 2014-02-02_JA-britain.tsv
-   554211  19364171 144081136 total
+    6000  151981  942164 TNA-download-FO-881-file-level-only-csv.tsv
+   15025  128415 1249673 TNA-download-HO-396-tagged-in-Excel-xlsx.tsv
+    4000  150915 1086654 TNA-download-WO-97-multilevel-xlsx.tsv
+   25025  431311 3278491 total
 ~~~
 {: .output}
 
@@ -128,11 +127,10 @@ $ wc -l *.tsv
 ~~~~
 {: .bash}
 ~~~
-    13712 2014-01-31_JA-africa.tsv
-    27392 2014-01-31_JA-america.tsv
-   507732 2014-01_JA.tsv
-     5375 2014-02-02_JA-britain.tsv
-   554211 total
+    6000 TNA-download-FO-881-file-level-only-csv.tsv
+   15025 TNA-download-HO-396-tagged-in-Excel-xlsx.tsv
+    4000 TNA-download-WO-97-multilevel-xlsx.tsv
+   25025 total
 ~~~
 {: .output}
 
@@ -157,11 +155,10 @@ $ cat lengths.txt
 ~~~~
 {: .bash}
 ~~~
-    13712 2014-01-31_JA-africa.tsv
-    27392 2014-01-31_JA-america.tsv
-   507732 2014-01_JA.tsv
-     5375 2014-02-02_JA-britain.tsv
-   554211 total
+    6000 TNA-download-FO-881-file-level-only-csv.tsv
+   15025 TNA-download-HO-396-tagged-in-Excel-xlsx.tsv
+    4000 TNA-download-WO-97-multilevel-xlsx.tsv
+   25025 total
 ~~~
 {: .bash}
 
@@ -175,11 +172,10 @@ $ cat sorted-lengths.txt
 ~~~~
 {: .bash}
 ~~~
-     5375 2014-02-02_JA-britain.tsv
-    13712 2014-01-31_JA-africa.tsv
-    27392 2014-01-31_JA-america.tsv
-   507732 2014-01_JA.tsv
-   554211 total
+    4000 TNA-download-WO-97-multilevel-xlsx.tsv
+    6000 TNA-download-FO-881-file-level-only-csv.tsv
+   15025 TNA-download-HO-396-tagged-in-Excel-xlsx.tsv
+   25025 total
 ~~~
 {: .output}
 
@@ -191,7 +187,7 @@ $ head -n 1 sorted-lengths.txt
 ~~~~
 {: .bash}
 ~~~
-     5375 2014-02-02_JA-britain.tsv
+    4000 TNA-download-WO-97-multilevel-xlsx.tsv
 ~~~
 {: .output}
 
@@ -207,11 +203,10 @@ $ wc -l *.tsv | sort -n
 ~~~~
 {: .bash}
 ~~~
-     5375 2014-02-02_JA-britain.tsv
-    13712 2014-01-31_JA-africa.tsv
-    27392 2014-01-31_JA-america.tsv
-   507732 2014-01_JA.tsv
-   554211 total
+    4000 TNA-download-WO-97-multilevel-xlsx.tsv
+    6000 TNA-download-FO-881-file-level-only-csv.tsv
+   15025 TNA-download-HO-396-tagged-in-Excel-xlsx.tsv
+   25025 total
 ~~~
 {: .output}
 
@@ -223,7 +218,7 @@ $ wc -l *.tsv | sort -n | head -n 1
 ~~~~
 {: .bash}
 ~~~
-     5375 2014-02-02_JA-britain.tsv
+    4000 TNA-download-WO-97-multilevel-xlsx.tsv
 ~~~
 {: .output}
 
@@ -377,11 +372,10 @@ programming languages.
 > > ~~~
 > > {: .bash}
 > > ~~~
-> >   511261 2014-01-31_JA-africa.tsv
-> >  1049601 2014-01-31_JA-america.tsv
-> > 17606310 2014-01_JA.tsv
-> >   196999 2014-02-02_JA-britain.tsv
-> > 19364171 total
+> >  151981 TNA-download-FO-881-file-level-only-csv.tsv
+> >  128415 TNA-download-HO-396-tagged-in-Excel-xlsx.tsv
+> >  150915 TNA-download-WO-97-multilevel-xlsx.tsv
+> >  431311 total
 > > ~~~
 > > {: .output}
 > >
@@ -392,11 +386,10 @@ programming languages.
 > > ~~~
 > > {: .bash}
 > > ~~~
-> >   196999 2014-02-02_JA-britain.tsv
-> >   511261 2014-01-31_JA-africa.tsv
-> >  1049601 2014-01-31_JA-america.tsv
-> > 17606310 2014-01_JA.tsv
-> > 19364171 total
+> >  128415 TNA-download-HO-396-tagged-in-Excel-xlsx.tsv
+> >  150915 TNA-download-WO-97-multilevel-xlsx.tsv
+> >  151981 TNA-download-FO-881-file-level-only-csv.tsv
+> >  431311 total
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -422,12 +415,12 @@ $ mkdir results
 Now let's try our first search:
 
 ~~~
-$ grep 1999 *.tsv
+$ grep 1867 *.tsv 
 ~~~
 {: .bash}
 
 Remember that the shell will expand `*.tsv` to a list of all the .tsv files in the
-directory. `grep` will then search these for instances of the string "1999" and
+directory. `grep` will then search these for instances of the string "1867" and
 print the matching lines.
 
 > ## Strings
@@ -435,57 +428,72 @@ print the matching lines.
 {: .callout}
 
 Press the up arrow once in order to cycle back to your most recent action.
-Amend `grep 1999 *.tsv` to `grep -c 1999 *.tsv` and hit enter.
+Amend `grep 1867 *.tsv` to `grep -c 1867 *.tsv` and hit enter.
 
 ~~~
-$ grep -c 1999 *.tsv
+$ grep -c 1867 *.tsv
 ~~~
 {: .bash}
 ~~~
-2014-01-31_JA-africa.tsv:804
-2014-01-31_JA-america.tsv:1478
-2014-01_JA.tsv:28767
-2014-02-02_JA-britain.tsv:284
+TNA-download-FO-881-file-level-only-csv.tsv:120
+TNA-download-HO-396-tagged-in-Excel-xlsx.tsv:23
+TNA-download-WO-97-multilevel-xlsx.tsv:0
 ~~~
 {: .output}
 
-The shell now prints the number of times the string 1999 appeared in each file.
+The shell now prints the number of times the string 1867 appeared in each file.
 If you look at the output from the previous command, this tends to refer to the
 date field for each journal article.
 
 We will try another search:
 
 ~~~
-$ grep -c revolution *.tsv
+$ grep -c German *.tsv
 ~~~
 {: .bash}
 ~~~
-2014-01-31_JA-africa.tsv:20
-2014-01-31_JA-america.tsv:34
-2014-01_JA.tsv:867
-2014-02-02_JA-britain.tsv:9
+TNA-download-FO-881-file-level-only-csv.tsv:156
+TNA-download-HO-396-tagged-in-Excel-xlsx.tsv:340
+TNA-download-WO-97-multilevel-xlsx.tsv:14
 ~~~
 {: .output}
 
-We got back the counts of the instances of the string `revolution` within the files.
+We got back the counts of the instances of the string `German` within the files.
 Now, amend the above command to the below and observe how the output of each is different:
 
 ~~~
-$ grep -ci revolution *.tsv
+$ grep -ci German *.tsv
 ~~~
 {: .bash}
 ~~~
-2014-01-31_JA-africa.tsv:118
-2014-01-31_JA-america.tsv:1018
-2014-01_JA.tsv:9327
-2014-02-02_JA-britain.tsv:122
+TNA-download-FO-881-file-level-only-csv.tsv:194
+TNA-download-HO-396-tagged-in-Excel-xlsx.tsv:340
+TNA-download-WO-97-multilevel-xlsx.tsv:15
 ~~~
 {: .output}
 
+**goes up. But why?. Do `grep -c german *.tsv` no hits. What is going on? (ALL CAPS!!)
+
 This repeats the query, but prints a case
-insensitive count (including instances of both `revolution` and `Revolution` and other variants).
-Note how the count has increased nearly 30 fold for those journal article
-titles that contain the keyword 'america'. As before, cycling back and
+insensitive count (including instances of both `german` and `German` and other variants).
+Note how the count has increased only modestly and in some cases not at all.
+
+Let's dig a little more into what is going on. Try:
+
+~~~
+$ grep -c german *.tsv
+~~~
+{: .bash}
+~~~
+TNA-download-FO-881-file-level-only-csv.tsv:0
+TNA-download-HO-396-tagged-in-Excel-xlsx.tsv:0
+TNA-download-WO-97-multilevel-xlsx.tsv:0
+~~~
+{: .output}
+
+We now see the string `german` appears nowhere in our data. What then accounts for the difference between `grep -c German *.tsv` and `grep -ci German *.tsv`? (hint: consider what other variants of `german` and `German` are found by `grep -ci German *.tsv`)
+
+Note if you wanted to any of these outputs, cycling back and
 adding `> results/`, followed by a filename (ideally in .txt format), will save the results to a data file.
 
 So far we have counted strings in file and printed to the shell or to
@@ -494,33 +502,33 @@ also use it to create subsets of tabulated data (or indeed any data)
 from one or multiple files.  
 
 ~~~
-$ grep -i revolution *.tsv
+$ grep -i german *.tsv
 ~~~
 {: .bash}
 
-This script looks in the defined files and prints any lines containing `revolution`
+This script looks in the defined files and prints any lines containing `german`
 (without regard to case) to the shell.
 
 ~~~
-$ grep -i revolution *.tsv > results/2016-07-19_JAi-revolution.tsv
+$ grep -i german *.tsv > results/TNAdata-german-i.tsv
 ~~~
 {: .bash}
 
 This saves the subsetted data to file.
 
 However, if we look at this file, it contains every instance of the
-string 'revolution' including as a single word and as part of other words
-such as 'revolutionary'. This perhaps isn't as useful as we thought...
+string 'german' including as a single word and as part of other words
+such as 'Germany'. This perhaps isn't as useful as we thought...
 Thankfully, the `-w` flag instructs `grep` to look for whole words only,
 giving us greater precision in our search.
 
 ~~~
-$ grep -iw revolution *.tsv > results/DATE_JAiw-revolution.tsv
+$ grep -iw german *.tsv > results/TNAdata-german-iw.tsv
 ~~~
 {: .bash}
 
 This script looks in both of the defined files and
-exports any lines containing the whole word `revolution` (without regard to case)
+exports any lines containing the whole word `german` (without regard to case)
 to the specified .tsv file.
 
 We can show the difference between the files we created.
@@ -530,11 +538,13 @@ $ wc -l results/*.tsv
 ~~~
 {: .bash}
 ~~~
-   10695 2016-07-19_JAi-revolution.tsv
-    7859 2016-07-19_JAw-revolution.tsv
-   18554 total
+     549 results/TNAdata-german-i.tsv
+      75 results/TNAdata-german-iw.tsv
+     624 total
 ~~~
 {: .output}
+
+What can account for the difference?
 
 Finally, we'll use the **regular expression syntax** covered earlier to search for similar words.
 
@@ -579,7 +589,7 @@ Pair up with your neighbor and work on these exercies:
 
 > ## Case sensitive search
 > Search for all case sensitive instances of
-> a word you choose in all four derived tsv files in this directory.
+> a word you choose in all three tsv files in this directory.
 > Print your results to the shell.
 >
 > > ## Solution
@@ -592,12 +602,12 @@ Pair up with your neighbor and work on these exercies:
 
 > ## Case sensitive search in select files
 > Search for all case sensitive instances of a word you choose in
-> the 'America' and 'Africa' tsv files in this directory.
+> the 'FO 881' and 'HO 396' tsv files in this directory.
 > Print your results to the shell.
 >
 > > ## Solution
 > > ~~~
-> > $ grep hero *a.tsv
+> > $ grep hero TNA-download-FO-881-file-level-only-csv.tsv TNA-download-HO-396-tagged-in-Excel-xlsx.tsv
 > > ~~~
 > > {: .bash}
 > {: .solution}
@@ -605,24 +615,24 @@ Pair up with your neighbor and work on these exercies:
 
 > ## Count words (case sensitive)
 > Count all case sensitive instances of a word you choose in
-> the 'America' and 'Africa' tsv files in this directory.
+> the 'FO 881' and 'HO 396' tsv files in this directory.
 > Print your results to the shell.
 >
 > > ## Solution
 > > ~~~
-> > $ grep -c hero *a.tsv
+> > $ grep -c hero TNA-download-FO-881-file-level-only-csv.tsv TNA-download-HO-396-tagged-in-Excel-xlsx.tsv
 > > ~~~
 > > {: .bash}
 > {: .solution}
 {: .challenge}
 
 > ## Count words (case insensitive)
-> Count all case insensitive instances of that word in the 'America' and 'Africa' tsv files
+> Count all case insensitive instances of that word in the 'FO 881' and 'HO 396' tsv files
 > in this directory. Print your results to the shell.
 >
 > > ## Solution
 > > ~~~
-> > $ grep -ci hero *a.tsv
+> > $ grep -ci hero TNA-download-FO-881-file-level-only-csv.tsv TNA-download-HO-396-tagged-in-Excel-xlsx.tsv
 > > ~~~
 > > {: .bash}
 > {: .solution}
@@ -630,11 +640,11 @@ Pair up with your neighbor and work on these exercies:
 
 > ## Case insensitive search in select files
 > Search for all case insensitive instances of that
-> word in the 'America' and 'Africa' tsv files in this directory. Print your results to  a file `results/new.tsv`.
+> word in the 'FO 881' and 'HO 396' tsv files in this directory. Print your results to a file `results/new.tsv`.
 >
 > > ## Solution
 > > ~~~
-> > $ grep -i hero *a.tsv > results/new.tsv
+> > $ grep -i hero TNA-download-FO-881-file-level-only-csv.tsv TNA-download-HO-396-tagged-in-Excel-xlsx.tsv > results/new.tsv
 > > ~~~
 > > {: .bash}
 > {: .solution}
@@ -642,53 +652,25 @@ Pair up with your neighbor and work on these exercies:
 
 > ## Case insensitive search in select files (whole word)
 > Search for all case insensitive instances of that whole word
-> in the 'America' and 'Africa' tsv files in this directory. Print your results to a file `results/new2.tsv`.
+> in the 'FO 881' and 'HO 396' tsv files in this directory. Print your results to a file `results/new2.tsv`.
 >
 > > ## Solution
 > > ~~~
-> > $ grep -iw hero *a.tsv > results/new2.tsv
+> > $ grep -iw hero TNA-download-FO-881-file-level-only-csv.tsv TNA-download-HO-396-tagged-in-Excel-xlsx.tsv > results/new2.tsv
 > > ~~~
-> > {: .bash}
-> {: .solution}
-{: .challenge}
-
-> ## Searching with regular expressions
-> Use regular expressions to find all ISSN numbers
-> (four digits followed by hyphen followed by four digits)
-> in `2014-01_JA.tsv` and print the results to a file `results/issns.tsv`.
-> Note that you might have to use the `-E` flag (or `-P` with some versions
-> of `grep`, e.g. with Git Bash on Windows.).
->
-> > ## Solution
-> > ~~~
-> > $ grep -E '\d{4}-\d{4}' 2014-01_JA.tsv > issns.tsv
-> > ~~~
-> > {: .bash}
-> >
-> > or
-> >
-> > ~~~
-> > $ grep -P '\d{4}-\d{4}' 2014-01_JA.tsv > issns.tsv
-> > ~~~
-> > {: .bash}
-> >
-> > If you came up with something more advanced, perhaps including word boundaries,
-> > please share your result on the Etherpad and give yourself a pat on the shoulder.
-> >
 > > {: .bash}
 > {: .solution}
 {: .challenge}
 
 > ## Finding unique values
 > If you pipe something to the `uniq` command, it will filter out duplicate lines
-> and only return unique ones. Try piping the output from the command in the last exercise
-> to `uniq` and then to `wc -l` to count the number of unique ISSN values.
+> and only return unique ones. The [Royal Hospital Chelsea: Soldier Service Documents](http://discovery.nationalarchives.gov.uk/results/r?_q=%22WO+97%22&_hb=tna&_d=WO&Refine+departments=Refine) contains a number of date ranges (eg '1760-1854' or '1815-1833'). Open the solution tab to see how many uniq date ranges the data contains. Can you pull this code apart and figure out what each step is doing?
 > Note: This exercise requires the `-o` flag. See the callout box "Invalid option -- o?"
 > above.
 >
 > > ## Solution
 > > ~~~
-> > $ grep -Eo '\d{4}-\d{4}' 2014-01_JA.tsv | uniq | wc -l
+> > $ grep -Eo '\d{4}-\d{4}' *.tsv | uniq | wc -l
 > > ~~~
 > > {: .bash}
 > {: .solution}
@@ -729,42 +711,3 @@ Pair up with your neighbor and work on these exercies:
 > > {: .bash}
 > {: .solution}
 {: .challenge}
-
-### Using a Loop to Count Words
-
-We will now use a loop to automate the counting of certain words within a document.
-
-Go to http://www.gutenberg.org/cache/epub/514/pg514.txt and save the file to your Desktop.
-
-We will now rename the file.
-
-~~~
-$ mv pg514.txt littlewomen.txt
-~~~
-
-This will rename the file to something easier to type.
-
-Now let's create our loop. In the loop, we will ask the computer to go through the text, looking for each girl's name,
-and count the number of times it appears. The results will print to the screen.
-
-~~~
-$ for name in "Jo" "Meg" "Beth" "Amy"
-> do
->    echo $name
->    grep $name littlewomen.txt | wc -w
-> done
-~~~
-
-{: .bash}
-
-~~~
-Jo
-18877
-Meg
-8314
-Beth
-5684
-Amy
-7933
-~~~
-{: .output}
