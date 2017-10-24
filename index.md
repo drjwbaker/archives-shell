@@ -2,7 +2,7 @@
 layout: lesson
 root: .
 ---
-This Library Carpentry lesson introduces librarians to the Unix Shell.
+This experimental Library Carpentry lesson introduces archivists to the Unix Shell.
 At the conclusion of the lesson you will: understand the basics of the Unix shell;
 understand why and how to use the command line;
 use shell commands to work with directories and files;
