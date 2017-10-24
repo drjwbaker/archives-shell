@@ -77,7 +77,7 @@ drwxr-xr-x  2 jb677  1322    68K Feb  2 00:58 backup
 ~~~
 {: .output}
 
-In this episode we'll focus on the three tsv files. These contain data from the UK National Archives 'Explore' catalogue: 
+In this episode we'll focus on the three tsv files. These contain data from the UK National Archives 'Discovery' catalogue: 
 
 - `TNA-download-FO-881-file-level-only-csv.tsv` contains metadata for records in the [Foreign Office: Confidential Print (Numerical Series)](http://discovery.nationalarchives.gov.uk/results/r?_q=%22FO+881%22&_hb=tna&_d=FO&Refine+departments=Refine)
 - `TNA-download-HO-396-tagged-in-Excel-xlsx.tsv` contains metadata for records in the [Home Office: Aliens Department: Internees Index](http://discovery.nationalarchives.gov.uk/results/r?_q=%22HO+396%22&_hb=tna&_d=HO&Refine+departments=Refine)
