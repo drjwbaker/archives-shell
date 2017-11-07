@@ -676,7 +676,7 @@ Pair up with your neighbor and work on these exercies:
 >
 > > ## Solution
 > > ~~~
-> > $ grep -Eo '\d{4}-\d{4}' TNA-download-WO-97-multilevel-xlsx.tsv | uniq | wc -l
+> > $ grep -Eo '\d{4}-\d{4}' TNA-download-WO-97-multilevel-xlsx.tsv | sort | uniq | wc -l
 > > ~~~
 > > {: .bash}
 > {: .solution}
