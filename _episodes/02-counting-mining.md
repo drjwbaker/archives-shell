@@ -670,13 +670,13 @@ Pair up with your neighbor and work on these exercies:
 
 > ## Finding unique values
 > If you pipe something to the `uniq` command, it will filter out duplicate lines
-> and only return unique ones. The [Royal Hospital Chelsea: Soldier Service Documents](http://discovery.nationalarchives.gov.uk/results/r?_q=%22WO+97%22&_hb=tna&_d=WO&Refine+departments=Refine) contains a number of date ranges (eg '1760-1854' or '1815-1833'). Open the solution tab to see how many uniq date ranges the data contains. Can you pull this code apart and figure out what each step is doing?
+> and only return unique ones. The [Royal Hospital Chelsea: Soldier Service Documents](http://discovery.nationalarchives.gov.uk/results/r?_q=%22WO+97%22&_hb=tna&_d=WO&Refine+departments=Refine) contains a number of date ranges (eg '1760-1854' or '1815-1833'). Open the solution tab to the problem of working out how many uniq date ranges the data contains. Can you pull this code apart and figure out what each step is doing?
 > Note: This exercise requires the `-o` flag. See the callout box "Invalid option -- o?"
 > above.
 >
 > > ## Solution
 > > ~~~
-> > $ grep -Eo '\d{4}-\d{4}' *.tsv | uniq | wc -l
+> > $ grep -Eo '\d{4}-\d{4}' TNA-download-WO-97-multilevel-xlsx.tsv | uniq | wc -l
 > > ~~~
 > > {: .bash}
 > {: .solution}
